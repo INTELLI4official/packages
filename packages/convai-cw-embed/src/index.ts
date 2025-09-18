@@ -1,3 +1,3 @@
-import { registerWidget } from "@elevenlabs/convai-widget-core";
+import { registerWidget } from "@intelli4/convai-cw-core";
 
 registerWidget();

@@ -22,7 +22,11 @@ const spacing = [
 ];
 
 export default {
-  content: ["./src/**/*.{ts,tsx}"],
+  // content: ["./src/**/*.{ts,tsx}"],
+  content: [
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}",
+  ],  
   theme: {
     boxShadow: {
       md: "0 2px 24px 1px rgba(0, 0, 0, 0.16)",

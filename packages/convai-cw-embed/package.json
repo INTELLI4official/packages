@@ -1,6 +1,8 @@
 {
-  "name": "@elevenlabs/convai-widget-embed",
-  "version": "0.2.1",
+  "name": "@intelli4/convai-cw-embed",
+
+  "version": "0.0.1",
+  
   "description": "The Conversational AI Widget bundled with all dependencies for easy embedding.",
   "main": "./dist/index.js",
   "unpkg": "./dist/index.js",
@@ -15,10 +17,11 @@
     "prepublishOnly": "pnpm run build"
   },
   "keywords": [],
-  "author": "ElevenLabs",
+  "author": "INTELLI4",
   "license": "MIT",
+
   "devDependencies": {
-    "@elevenlabs/convai-widget-core": "workspace:*",
+    "@intelli4/convai-cw-core":"^0.0.1",
     "eslint": "^9.8.0",
     "microbundle": "^0.15.1",
     "typescript": "^5.5.4",
@@ -29,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elevenlabs/packages.git",
-    "directory": "packages/convai-widget-embed"
+    "url": "git+https://github.com/INTELLI4official/packages.git",
+    "directory": "packages/convai-cw-embed"
   }
 }
