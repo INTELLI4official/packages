@@ -4,12 +4,12 @@ import { Worker } from "./mocks/browser";
 import { setupWebComponent } from "./mocks/web-component";
 import { Variants } from "./types/config";
 
-describe("elevenlabs-convai", () => {
+describe("intelli4-convai", () => {
   beforeAll(() => Worker.start({ quiet: true }));
   afterAll(() => Worker.stop());
 
   it("should register a custom component", async () => {
-    expect(window.customElements.get("elevenlabs-convai")).toBeDefined();
+    expect(window.customElements.get("intelli4-convai")).toBeDefined();
   });
 
   it.each(Variants)(

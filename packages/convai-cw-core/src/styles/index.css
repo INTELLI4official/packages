@@ -4,13 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-intelli4-base: #ffa101;
+  --color-secondary: #ffed4a;
+  --mtop: 100px;
+  --txt-white: #fffff;
+
+  /* Define other CSS variables here */
+}
+
 .dev-host,
 :host {
+
+  --color-intelli4-base: #ffa101;
+  --color-secondary: #ffed4a;
+  --mtop: 100px;
+  --txt-white: #ffffff;
+  /* Define other CSS variables here */
+
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: 1000;
-  /* background-color: white; */
 
   @apply text-base-primary text-md;
   font-family:
@@ -34,10 +49,9 @@
   .overlay {
     position: absolute;
     inset: var(--el-overlay-padding);
+
     /* Make sure the widget doesn't shift when opening dropdowns */
-    right: calc(
-      var(--el-overlay-padding) + var(--removed-body-scroll-bar-size, 0px)
-    );
+    right: calc(var(--el-overlay-padding) + var(--removed-body-scroll-bar-size, 0px));
   }
 
   .focus-ring {
