@@ -17,11 +17,46 @@ export const Placements = [
   "bottom",
   "bottom-right",
 ] as const;
+
 export type Placement = (typeof Placements)[number];
+
 export function parsePlacement(placement: string | undefined): Placement {
   return Placements.includes(placement as Placement)
     ? (placement as Placement)
     : "bottom-right";
+}
+
+// new for intelli4
+export const ICPlacements = [
+  "right-bottom-1",
+  "right-bottom-2",
+  "right-mid-1",
+  "right-mid-2",
+] as const;
+
+export type ICPlacement = (typeof ICPlacements)[number];
+
+export function parseICPlacement(icplacement: string | undefined): ICPlacement {
+  return ICPlacements.includes(icplacement as ICPlacement)
+    // ? (icplacement as ICPlacement)
+    ? "right-bottom-1"
+    : "right-bottom-1";
+}
+
+export const ICMobPlacements = [
+  "right-bottom-1",
+  "right-bottom-2",
+  "right-mid-1",
+  "right-mid-2",
+] as const;
+
+export type ICMobPlacement = (typeof ICMobPlacements)[number];
+
+export function parseICMobPlacement(icmobplacement: string | undefined): ICMobPlacement {
+  return ICMobPlacements.includes(icmobplacement as ICMobPlacement)
+    // ? (icmobplacement as ICMobPlacement)
+    ? "right-bottom-1"
+    : "right-bottom-1";
 }
 
 export type FeedbackMode = "none" | "during" | "end";
@@ -57,6 +92,11 @@ export interface WidgetConfig {
   supports_text_only: boolean;
   first_message?: string;
   use_rtc?: boolean;
+
+  // intelli4
+  ic_placement: ICPlacement;
+  ic_mob_placement: ICMobPlacement;
+
 }
 
 export type AvatarConfig =
@@ -133,6 +173,7 @@ export const DefaultStyles = {
   sheet_radius: "calc(var(--el-button-radius) + 6px)",
   compact_sheet_radius: "calc(var(--el-button-radius) + 12px)",
   dropdown_sheet_radius: "calc(var(--el-input-radius) + 6px)",
+
 };
 
 export const StyleKeys = Object.keys(

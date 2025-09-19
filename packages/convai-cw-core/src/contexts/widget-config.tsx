@@ -7,6 +7,7 @@ import {
 import { ComponentChildren } from "preact";
 import { createContext } from "preact/compat";
 import { parsePlacement, parseVariant, WidgetConfig } from "../types/config";
+import { parseICPlacement, parseICMobPlacement } from "../types/config"; // intelli4
 import { useAttribute } from "./attributes";
 import { useServerLocation } from "./server-location";
 
@@ -88,6 +89,10 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
   const alwaysExpanded = useAttribute("always-expanded");
   const overrideTextOnly = useAttribute("override-text-only");
 
+  // intelli4
+  const ic_placement = useAttribute("ic_placement");
+  const ic_mob_placement = useAttribute("ic_mob_placement");
+
   const value = useComputed<WidgetConfig | null>(() => {
     if (!fetchedConfig.value) {
       return null;
@@ -97,6 +102,10 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
     const patchedPlacement = placement.value ?? fetchedConfig.value.placement;
     const patchedTermsKey = termsKey.value ?? fetchedConfig.value.terms_key;
 
+    // intelli4
+    const patchedICPlacement = ic_placement.value ?? fetchedConfig.value.ic_placement
+    const patchedICMobPlacement = ic_mob_placement.value ?? fetchedConfig.value.ic_mob_placement
+
     const textOnly =
       parseBoolAttribute(overrideTextOnly.value) ??
       fetchedConfig.value.text_only ??
@@ -105,16 +114,20 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
     const patchedMicMuting =
       parseBoolAttribute(micMuting.value) ??
       fetchedConfig.value.mic_muting_enabled;
+
     const patchedTranscript =
       parseBoolAttribute(transcript.value) ??
       fetchedConfig.value.transcript_enabled;
+
     const patchedTextInput =
       parseBoolAttribute(textInput.value) ??
       fetchedConfig.value.text_input_enabled;
+
     const patchedAlwaysExpanded =
       parseBoolAttribute(alwaysExpanded.value) ??
       fetchedConfig.value.always_expanded ??
       false;
+
     const patchedDefaultExpanded =
       parseBoolAttribute(defaultExpanded.value) ??
       fetchedConfig.value.default_expanded ??
@@ -130,6 +143,9 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
       text_input_enabled: textOnly || patchedTextInput,
       always_expanded: patchedAlwaysExpanded,
       default_expanded: patchedDefaultExpanded,
+
+      ic_placement: parseICPlacement(patchedICPlacement),
+      ic_mob_placement: parseICMobPlacement(patchedICMobPlacement)
     };
   });
 

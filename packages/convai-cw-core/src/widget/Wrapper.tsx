@@ -24,6 +24,16 @@ const VERTICAL = {
   bottom: "flex-col justify-end",
 };
 
+// const PLACEMENT_CLASSES: Record<Placement, string> = {
+//   "top-left": `${VERTICAL.top} ${HORIZONTAL.left}`,
+//   top: `${VERTICAL.top} ${HORIZONTAL.center}`,
+//   "top-right": `${VERTICAL.top} ${HORIZONTAL.right}`,
+//   "bottom-left": `${VERTICAL.bottom} ${HORIZONTAL.left}`,
+//   bottom: `${VERTICAL.bottom} ${HORIZONTAL.center}`,
+//   "bottom-right": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
+// };
+
+// new for intelli4
 const PLACEMENT_CLASSES: Record<Placement, string> = {
   "top-left": `${VERTICAL.top} ${HORIZONTAL.left}`,
   top: `${VERTICAL.top} ${HORIZONTAL.center}`,
@@ -31,7 +41,11 @@ const PLACEMENT_CLASSES: Record<Placement, string> = {
   "bottom-left": `${VERTICAL.bottom} ${HORIZONTAL.left}`,
   bottom: `${VERTICAL.bottom} ${HORIZONTAL.center}`,
   "bottom-right": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
+
+  "ic-right-bottom": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
+  "ic-right-mid": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
 };
+
 
 // Keep the contents hidden initially to avoid FOUC in Safari
 // Once styles are loaded they will override this
@@ -82,31 +96,36 @@ export const Wrapper = memo(function Wrapper() {
 
   return (
     <>
+
       <InOutTransition initial={false} active={isConversation}>
         <Root className={className} style={HIDDEN_STYLE}>
-          {config.value.always_expanded ? (
-            <Sheet open />
-          ) : (
-            <>
+          {config.value.always_expanded ? 
+            ( <Sheet open /> ) 
+            : 
+            (<>
               {expandable.value && <Sheet open={expanded} />}
               <Trigger expandable={expandable.value} expanded={expanded} />
-            </>
-          )}
+            </>)
+          }
         </Root>
       </InOutTransition>
+
       <InOutTransition initial={false} active={isTerms}>
         <Root className={className} style={HIDDEN_STYLE}>
           <TermsModal />
         </Root>
       </InOutTransition>
+
       <InOutTransition initial={false} active={isError}>
         <Root className={className} style={HIDDEN_STYLE}>
           <ErrorModal sawError={sawError} />
         </Root>
       </InOutTransition>
+
       <Root className={className} style={HIDDEN_STYLE}>
         <PoweredBy />
       </Root>
+
     </>
   );
 });

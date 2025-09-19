@@ -38,6 +38,12 @@ export const CustomAttributeList = [
   "default-expanded",
   "always-expanded",
   "user-id",
+
+  // new for intelli4
+  "ic_placement",
+  "ic_mob_placement",
+  
+
 ] as const;
 
 export type CustomAttributes = {

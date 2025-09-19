@@ -37,6 +37,10 @@ export function Sheet({ open }: SheetProps) {
   const isConversationTextOnly = useIsConversationTextOnly();
   const config = useWidgetConfig();
   const placement = config.value.placement;
+
+  const ic_placement = config.value.ic_placement;
+  const ic_mob_placement = config.value.ic_mob_placement;
+  
   const { isDisconnected, startSession, transcript, conversationIndex } =
     useConversation();
   const firstMessage = useFirstMessage();
@@ -139,5 +143,7 @@ export function Sheet({ open }: SheetProps) {
         </div>
       </div>
     </InOutTransition>
+
+
   );
 }
