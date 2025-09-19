@@ -6,6 +6,7 @@ import { DefaultStyles, StyleKeys } from "../types/config";
 
 export const Style = memo(function Style() {
   const config = useWidgetConfig();
+  
   const prelude = useComputed(() => {
     const styles = config.value.styles;
     return `:host, :root {\n${StyleKeys.map(

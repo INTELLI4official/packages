@@ -4,6 +4,8 @@ import { Button, ButtonProps } from "../components/Button";
 import { SizeTransition } from "../components/SizeTransition";
 import { useTextContents } from "../contexts/text-contents";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 interface TriggerMuteButtonProps extends Omit<ButtonProps, "icon"> {
   visible: boolean;
 }
@@ -22,6 +24,8 @@ export function TriggerMuteButton({
   if (!isMutingEnabled.value) {
     return null;
   }
+
+  const config = useWidgetConfig();
 
   return (
     <SizeTransition visible={visible} className="p-1">

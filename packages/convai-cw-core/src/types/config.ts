@@ -97,6 +97,8 @@ export interface WidgetConfig {
   ic_placement: ICPlacement;
   ic_mob_placement: ICMobPlacement;
 
+
+
 }
 
 export type AvatarConfig =
@@ -166,13 +168,26 @@ export const DefaultStyles = {
   accent_border: "#4b5563",
   accent_subtle: "#6b7280",
   accent_primary: "#ffffff",
-  overlay_padding: 32,
-  button_radius: 18,
-  input_radius: 10,
-  bubble_radius: 15,
-  sheet_radius: "calc(var(--el-button-radius) + 6px)",
+  overlay_padding: 0, // 32,
+  button_radius: 0, //18,
+  input_radius: 0, // 10,
+  bubble_radius: 0, // 15,
+  sheet_radius: "calc(var(--el-button-radius) + 0px)",
   compact_sheet_radius: "calc(var(--el-button-radius) + 12px)",
   dropdown_sheet_radius: "calc(var(--el-input-radius) + 6px)",
+
+  ic_w: 420,
+  ic_pad_r: 700,
+  ic_pad_b: 0,
+  ic_pad_t: 0,
+  ic_pad_l: 0,
+
+  ic_mob_w: 700,
+  ic_mob_pad_r: 100,
+  ic_mob_pad_b: 10,
+  ic_mob_pad_t: 10,
+  ic_mob_pad_l: 10,  
+
 
 };
 

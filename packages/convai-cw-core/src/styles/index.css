@@ -4,23 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-intelli4-base: #ffa101;
-  --color-secondary: #ffed4a;
-  --mtop: 100px;
-  --txt-white: #fffff;
+/* :root {
 
-  /* Define other CSS variables here */
-}
+} */
+
+/* @theme {
+  --breakpoint-sm: "0px"; 
+  --breakpoint-md: "768px"; 
+} */
 
 .dev-host,
 :host {
-
-  --color-intelli4-base: #ffa101;
-  --color-secondary: #ffed4a;
-  --mtop: 100px;
-  --txt-white: #ffffff;
-  /* Define other CSS variables here */
 
   pointer-events: none;
   position: fixed;
@@ -53,6 +47,8 @@
     /* Make sure the widget doesn't shift when opening dropdowns */
     right: calc(var(--el-overlay-padding) + var(--removed-body-scroll-bar-size, 0px));
   }
+
+
 
   .focus-ring {
     @apply ring-accent ring-offset-base ring-offset-2 focus-visible:ring-2 focus-visible:outline-none;

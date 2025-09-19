@@ -42,6 +42,8 @@ export const CustomAttributeList = [
   // new for intelli4
   "ic_placement",
   "ic_mob_placement",
+
+
   
 
 ] as const;

@@ -5,6 +5,8 @@ import { useCallback } from "preact/compat";
 import { CopyButton } from "../components/CopyButton";
 import { Button } from "../components/Button";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 interface ErrorModalProps {
   sawError: Signal<boolean>;
 }
@@ -16,6 +18,8 @@ export function ErrorModal({ sawError }: ErrorModalProps) {
   const handleClose = useCallback(() => {
     sawError.value = true;
   }, []);
+
+  const config = useWidgetConfig();
 
   return (
     <div className="max-w-[400px] flex flex-col gap-2 bg-base shadow-md pointer-events-auto rounded-sheet p-3 text-sm">

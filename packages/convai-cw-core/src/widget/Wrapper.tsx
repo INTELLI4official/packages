@@ -24,16 +24,6 @@ const VERTICAL = {
   bottom: "flex-col justify-end",
 };
 
-// const PLACEMENT_CLASSES: Record<Placement, string> = {
-//   "top-left": `${VERTICAL.top} ${HORIZONTAL.left}`,
-//   top: `${VERTICAL.top} ${HORIZONTAL.center}`,
-//   "top-right": `${VERTICAL.top} ${HORIZONTAL.right}`,
-//   "bottom-left": `${VERTICAL.bottom} ${HORIZONTAL.left}`,
-//   bottom: `${VERTICAL.bottom} ${HORIZONTAL.center}`,
-//   "bottom-right": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
-// };
-
-// new for intelli4
 const PLACEMENT_CLASSES: Record<Placement, string> = {
   "top-left": `${VERTICAL.top} ${HORIZONTAL.left}`,
   top: `${VERTICAL.top} ${HORIZONTAL.center}`,
@@ -41,10 +31,8 @@ const PLACEMENT_CLASSES: Record<Placement, string> = {
   "bottom-left": `${VERTICAL.bottom} ${HORIZONTAL.left}`,
   bottom: `${VERTICAL.bottom} ${HORIZONTAL.center}`,
   "bottom-right": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
-
-  "ic-right-bottom": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
-  "ic-right-mid": `${VERTICAL.bottom} ${HORIZONTAL.right}`,
 };
+
 
 
 // Keep the contents hidden initially to avoid FOUC in Safari
@@ -59,15 +47,16 @@ export const Wrapper = memo(function Wrapper() {
   const sawError = useSignal(false);
   const { error } = useConversation();
   const terms = useTerms();
-  const expandable = useComputed(
-    () => config.value.transcript_enabled || config.value.text_input_enabled
-  );
-  const className = useComputed(() =>
-    clsx(
-      "overlay !flex transition-opacity duration-200 data-hidden:opacity-0",
-      PLACEMENT_CLASSES[config.value.placement]
-    )
-  );
+  const expandable = useComputed( () => config.value.transcript_enabled || config.value.text_input_enabled );
+
+  // const className = useComputed(() =>
+  //   clsx(
+  //     "overlay !flex transition-opacity duration-200 data-hidden:opacity-0",
+  //     PLACEMENT_CLASSES[config.value.placement]
+  //   )
+  // );
+
+  const className = "!flex "
 
   useSignalEffect(() => {
     if (error.value) {
@@ -122,9 +111,9 @@ export const Wrapper = memo(function Wrapper() {
         </Root>
       </InOutTransition>
 
-      <Root className={className} style={HIDDEN_STYLE}>
+      {/* <Root className={className} style={HIDDEN_STYLE}>
         <PoweredBy />
-      </Root>
+      </Root> */}
 
     </>
   );

@@ -6,6 +6,8 @@ import { InOutTransition } from "../components/InOutTransition";
 import { useTextContents } from "../contexts/text-contents";
 import { useIsConversationTextOnly } from "../contexts/widget-config";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 export function StatusLabel({
   className,
   ...props
@@ -35,6 +37,8 @@ export function StatusLabel({
       return () => clearTimeout(timeout);
     }
   });
+
+  const config = useWidgetConfig();
 
   return (
     <div

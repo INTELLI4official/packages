@@ -3,6 +3,8 @@ import { TranscriptEntry } from "../contexts/conversation";
 import { useEffect, useRef } from "preact/compat";
 import { TranscriptMessage } from "./TranscriptMessage";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 const SCROLL_PIN_PADDING = 16;
 
 interface TranscriptProps {
@@ -31,6 +33,9 @@ export function Transcript({ scrollPinned, transcript }: TranscriptProps) {
       scrollToBottom(true);
     }
   });
+
+  const config = useWidgetConfig();
+  
 
   return (
     <div

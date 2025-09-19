@@ -4,6 +4,8 @@ import { clsx } from "clsx";
 import { useAvatarConfig } from "../contexts/avatar-config";
 import { useTextContents } from "../contexts/text-contents";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 interface TranscriptMessageProps {
   entry: TranscriptEntry;
   animateIn: boolean;
@@ -16,6 +18,9 @@ export function TranscriptMessage({
   const text = useTextContents();
   const { previewUrl } = useAvatarConfig();
   const { lastId } = useConversation();
+  
+  const config = useWidgetConfig();
+  
   return (
     <InOutTransition initial={!animateIn} active={true}>
       {entry.type === "message" ? (

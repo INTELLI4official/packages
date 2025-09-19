@@ -5,8 +5,9 @@ import { Button } from "../components/Button";
 
 export function TermsModal() {
   const text = useTextContents();
-  const config = useWidgetConfig();
   const { dismissTerms, acceptTerms } = useTerms();
+
+  const config = useWidgetConfig();
 
   return (
     <div className="max-w-[400px] flex flex-col gap-2 bg-base shadow-md pointer-events-auto rounded-sheet p-3 text-sm">

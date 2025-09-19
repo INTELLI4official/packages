@@ -8,6 +8,8 @@ import { LanguageSelect } from "./LanguageSelect";
 import { SizeTransition } from "../components/SizeTransition";
 import { useTextContents } from "../contexts/text-contents";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 interface Props extends SelectTriggerProps {
   visible: boolean;
 }
@@ -18,6 +20,8 @@ export function TriggerLanguageSelect({ visible, className, ...rest }: Props) {
   if (!showPicker.value) {
     return null;
   }
+
+  const config = useWidgetConfig();
 
   return (
     <SizeTransition visible={visible} className="p-1">

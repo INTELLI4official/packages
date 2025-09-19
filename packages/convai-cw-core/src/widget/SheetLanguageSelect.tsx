@@ -7,6 +7,8 @@ import { clsx } from "clsx";
 import { LanguageSelect } from "./LanguageSelect";
 import { useTextContents } from "../contexts/text-contents";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 export function SheetLanguageSelect({
   className,
   ...rest
@@ -16,6 +18,8 @@ export function SheetLanguageSelect({
   if (!showPicker.value) {
     return null;
   }
+
+  const config = useWidgetConfig();
 
   return (
     <LanguageSelect align="center">

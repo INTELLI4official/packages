@@ -15,13 +15,16 @@ import { Avatar } from "../components/Avatar";
 
 export function ExpandableTriggerActions({ expanded }: ExpandableProps) {
   const textOnly = useIsConversationTextOnly();
-  const variant = useWidgetConfig().value.variant;
+  // const variant = useWidgetConfig().value.variant;
   const { isDisconnected } = useConversation();
   const text = useTextContents();
   const toggleExpanded = useCallback(() => {
     expanded.value = !expanded.value;
   }, [expanded]);
 
+  const config = useWidgetConfig();
+  const variant = config.value.variant;
+  
   return (
     <>
       {variant === "full" && (

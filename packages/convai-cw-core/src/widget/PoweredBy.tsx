@@ -4,20 +4,18 @@ import { clsx } from "clsx";
 export function PoweredBy() {
   const config = useWidgetConfig();
 
-  if (config.value.disable_banner) {
-    return null;
+  if (config.value.disable_banner) { 
+    return null; 
   }
 
+
+
   return (
-    <div className="text-center text-white [background-color:var(--color-intelli4-base)]  translate-y-[calc(var(--el-overlay-padding))] [width:250px] [margin-bottom:5px]">
+    <div className="text-center text-white [background-color:red]  translate-y-[calc(var(--el-overlay-padding))] [width:250px] [margin-bottom:5px]">
     <p
-      // className={clsx(
-      //   "whitespace-nowrap  [line-height:var(--el-overlay-padding)] text-[10px] px-3",
-      //   config.value.placement.startsWith("top")
-      //     ? "-translate-y-[calc(var(--el-overlay-padding))]"
-      //     : "translate-y-[calc(var(--el-overlay-padding))]"
-      // )}
-      className={clsx( "whitespace-nowrap  text-[15px] text-center" )}      
+      className={ clsx( 
+        "whitespace-nowrap  text-[15px] text-center" 
+      )}      
     >
       <span className="opacity-100 [color:var(--txt-white)]">INTELLI4</span>{" "}
       <a

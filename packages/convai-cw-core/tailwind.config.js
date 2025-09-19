@@ -67,6 +67,16 @@ export default {
       1: "1",
       10: "10",
     },
+
+    screens: {
+      // Override default breakpoints
+      'sm': '0px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px'
+    }
+        
   },
   plugins: [],
 };

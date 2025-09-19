@@ -1,7 +1,7 @@
 {
   "name": "@intelli4/convai-cw-core",
   
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The common library for the Conversational AI Widget.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

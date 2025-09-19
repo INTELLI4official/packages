@@ -7,6 +7,8 @@ import { InOutTransition } from "../components/InOutTransition";
 import { TriggerActions } from "./TriggerActions";
 import { StatusLabel } from "./StatusLabel";
 
+import { useWidgetConfig } from "../contexts/widget-config";
+
 export function FullTrigger({
   className,
   ...rest
@@ -14,6 +16,8 @@ export function FullTrigger({
   const { isDisconnected } = useConversation();
   const text = useTextContents();
 
+  const config = useWidgetConfig();
+  
   return (
     <div className={clsx("flex flex-col p-2 rounded-sheet", className)} {...rest}>
       <div className="flex items-center p-1 gap-2 min-w-60">

@@ -19,7 +19,8 @@ interface TriggerProps {
 }
 
 export function Trigger({ expandable, expanded }: TriggerProps) {
-  const variant = useWidgetConfig().value.variant;
+  // const variant = useWidgetConfig().value.variant;
+
   const terms = useTerms();
   const { isDisconnected } = useConversation();
   const toggleExpanded = useCallback(async () => {
@@ -27,9 +28,16 @@ export function Trigger({ expandable, expanded }: TriggerProps) {
     expanded.value = !expanded.peek();
   }, [expanded]);
 
+
+  const config = useWidgetConfig();
+  const variant = config.value.variant;
+
   const isFull = variant === "full";
+
   if (expandable) {
+
     const Layout = isFull ? FullExpandableTrigger : CompactExpandableTrigger;
+
     return (
       <Layout
         expanded={expanded}
@@ -45,6 +53,7 @@ export function Trigger({ expandable, expanded }: TriggerProps) {
   }
 
   const Layout = isFull ? FullTrigger : CompactTrigger;
+
   return (
     <Layout className="bg-base shadow-md pointer-events-auto overflow-hidden" />
   );

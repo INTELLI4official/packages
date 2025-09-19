@@ -74,6 +74,8 @@ export function SheetActions({
 
   const showSendButton = useComputed(() => !!userMessage.value.trim());
 
+  const config = useWidgetConfig();
+
   return (
     <div className="shrink-0 overflow-hidden flex p-3 items-end justify-end">
       {text_input_enabled && (
