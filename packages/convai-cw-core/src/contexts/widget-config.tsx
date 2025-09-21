@@ -90,8 +90,8 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
   const overrideTextOnly = useAttribute("override-text-only");
 
   // intelli4
-  const ic_placement = useAttribute("ic_placement");
-  const ic_mob_placement = useAttribute("ic_mob_placement");
+  const ic_placement = useAttribute("ic-pos");
+  const ic_mob_placement = useAttribute("ic-pos-mob");
 
   const value = useComputed<WidgetConfig | null>(() => {
     if (!fetchedConfig.value) {
@@ -103,8 +103,8 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
     const patchedTermsKey = termsKey.value ?? fetchedConfig.value.terms_key;
 
     // intelli4
-    const patchedICPlacement = ic_placement.value ?? fetchedConfig.value.ic_placement
-    const patchedICMobPlacement = ic_mob_placement.value ?? fetchedConfig.value.ic_mob_placement
+    const patchedICPlacement = ic_placement.value ?? fetchedConfig.value.ic_pos
+    const patchedICMobPlacement = ic_mob_placement.value ?? fetchedConfig.value.ic_pos_mob
 
     const textOnly =
       parseBoolAttribute(overrideTextOnly.value) ??
@@ -144,8 +144,8 @@ export function WidgetConfigProvider({ children }: WidgetConfigProviderProps) {
       always_expanded: patchedAlwaysExpanded,
       default_expanded: patchedDefaultExpanded,
 
-      ic_placement: parseICPlacement(patchedICPlacement),
-      ic_mob_placement: parseICMobPlacement(patchedICMobPlacement)
+      ic_pos: parseICPlacement(patchedICPlacement),
+      ic_pos_mob: parseICMobPlacement(patchedICMobPlacement)
     };
   });
 

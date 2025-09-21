@@ -28,10 +28,10 @@ export function parsePlacement(placement: string | undefined): Placement {
 
 // new for intelli4
 export const ICPlacements = [
-  "right-bottom-1",
-  "right-bottom-2",
-  "right-mid-1",
-  "right-mid-2",
+  "rb1",
+  "rb2",
+  "rm1",
+  "rm2",
 ] as const;
 
 export type ICPlacement = (typeof ICPlacements)[number];
@@ -39,15 +39,15 @@ export type ICPlacement = (typeof ICPlacements)[number];
 export function parseICPlacement(icplacement: string | undefined): ICPlacement {
   return ICPlacements.includes(icplacement as ICPlacement)
     // ? (icplacement as ICPlacement)
-    ? "right-bottom-1"
-    : "right-bottom-1";
+    ? "rb1"
+    : "rb1";
 }
 
 export const ICMobPlacements = [
-  "right-bottom-1",
-  "right-bottom-2",
-  "right-mid-1",
-  "right-mid-2",
+  "rb1",
+  "rb2",
+  "rm1",
+  "rm2",
 ] as const;
 
 export type ICMobPlacement = (typeof ICMobPlacements)[number];
@@ -55,8 +55,8 @@ export type ICMobPlacement = (typeof ICMobPlacements)[number];
 export function parseICMobPlacement(icmobplacement: string | undefined): ICMobPlacement {
   return ICMobPlacements.includes(icmobplacement as ICMobPlacement)
     // ? (icmobplacement as ICMobPlacement)
-    ? "right-bottom-1"
-    : "right-bottom-1";
+    ? "rb1"
+    : "rb1";
 }
 
 export type FeedbackMode = "none" | "during" | "end";
@@ -94,8 +94,8 @@ export interface WidgetConfig {
   use_rtc?: boolean;
 
   // intelli4
-  ic_placement: ICPlacement;
-  ic_mob_placement: ICMobPlacement;
+  ic_pos: ICPlacement;
+  ic_pos_mob: ICMobPlacement;
 
 
 

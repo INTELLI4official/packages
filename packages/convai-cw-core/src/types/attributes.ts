@@ -40,11 +40,10 @@ export const CustomAttributeList = [
   "user-id",
 
   // new for intelli4
-  "ic_placement",
-  "ic_mob_placement",
+  "ic-pos",
+  "ic-pos-mob",
 
 
-  
 
 ] as const;
 

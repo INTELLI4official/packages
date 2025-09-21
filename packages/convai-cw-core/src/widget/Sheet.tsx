@@ -77,11 +77,11 @@ export function Sheet({ open }: SheetProps) {
   const scrollPinned = useSignal(true);
 
 
-  const ic_placement = config.value.ic_placement;
-  const ic_mob_placement = config.value.ic_mob_placement;
+  const ic_pos = config.value.ic_pos;
+  const ic_pos_mob = config.value.ic_pos_mob;
   
   let icClassName;
-  if (config.value.ic_placement === "right-bottom-1"){
+  if (config.value.ic_pos === "rb1"){
     icClassName = "!flex w-full  "
   }
 
@@ -160,7 +160,7 @@ export function Sheet({ open }: SheetProps) {
     // </InOutTransition>
 
     <>
-    {ic_placement === "right-bottom-1" && (
+    {ic_pos === "rb1" && (
       <InOutTransition initial={false} active={open}>
 
         <div className={

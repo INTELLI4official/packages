@@ -15,7 +15,6 @@ import { Avatar } from "../components/Avatar";
 
 export function ExpandableTriggerActions({ expanded }: ExpandableProps) {
   const textOnly = useIsConversationTextOnly();
-  // const variant = useWidgetConfig().value.variant;
   const { isDisconnected } = useConversation();
   const text = useTextContents();
   const toggleExpanded = useCallback(() => {
@@ -30,7 +29,8 @@ export function ExpandableTriggerActions({ expanded }: ExpandableProps) {
       {variant === "full" && (
         <SizeTransition
           visible={!expanded.value && !isDisconnected.value}
-          className="p-1"
+          className=""
+          // className="p-1"
         >
           <Avatar />
         </SizeTransition>
@@ -38,14 +38,19 @@ export function ExpandableTriggerActions({ expanded }: ExpandableProps) {
       <SizeTransition
         grow={variant !== "tiny"}
         visible={!textOnly.value && !expanded.value && !isDisconnected.value}
-        className="p-1"
+        className=""
+        // className="p-1"
       >
         <CallButton iconOnly isDisconnected={false} />
       </SizeTransition>
       <TriggerMuteButton
         visible={!textOnly.value && !expanded.value && !isDisconnected.value}
       />
-      <SizeTransition grow={isDisconnected.value} visible className="p-1">
+      <SizeTransition 
+        grow={isDisconnected.value} visible 
+        className=""
+        // className="p-1"
+      >
         <Button
           className="w-full"
           variant="primary"

@@ -10,12 +10,14 @@ export default defineConfig({
       "react-dom": "preact/compat",
     },
   },
+
   build: {
     lib: {
       entry: "src/index.ts",
       fileName: "index",
       formats: ["es"],
     },
+
     outDir: "dist",
     rollupOptions: {
       external: id =>
@@ -24,8 +26,24 @@ export default defineConfig({
         id.startsWith("@elevenlabs") ||
         id === "clsx",
     },
+
+      minify: 'terser', // Use Terser for minification
+      terserOptions: {
+        format: {
+          comments: false, // Removes all comments
+          // Or, to keep specific comments (e.g., those starting with '!')
+          // comments: /^!/ 
+        },        
+        compress: {
+          drop_console: true, // Remove console.log statements
+        },
+        mangle: true, // Mangle variable names
+      },    
+
   },
+  
   plugins: [preact()],
+
   test: {
     name: "ConvAI Widget Tests",
     browser: {
