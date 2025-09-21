@@ -5,7 +5,6 @@ import { TriggerLanguageSelect } from "./TriggerLanguageSelect";
 import { TriggerMuteButton } from "./TriggerMuteButton";
 
 export function TriggerActions() {
-  // const variant = useWidgetConfig().value.variant;
   const { isDisconnected, status } = useConversation();
 
   const config = useWidgetConfig();

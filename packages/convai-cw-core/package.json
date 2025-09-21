@@ -1,6 +1,6 @@
 {
   "name": "@intelli4/convai-cw-core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The common library for the Conversational AI Widget.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -45,7 +45,8 @@
     "@preact/signals": "^2.0.4",
     "clsx": "^2.1.1",
     "preact": "^10.26.5",
-    "preact-custom-element": "^4.3.0"
+    "preact-custom-element": "^4.3.0",
+    "react-icons": "^5.5.0"
   },
   "publishConfig": {
     "access": "public"

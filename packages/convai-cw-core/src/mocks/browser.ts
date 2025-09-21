@@ -27,8 +27,8 @@ const BASIC_CONFIG: WidgetConfig = {
   supports_text_only: true,
   first_message: "Agent response",
 
-  ic_placement: "right-bottom-1",
-  ic_mob_placement: "right-bottom-1",
+  ic_pos: "rb1",
+  ic_pos_mob: "rb1",
 };
 
 export const AGENTS = {

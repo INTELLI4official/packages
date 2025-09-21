@@ -19,7 +19,6 @@ interface TriggerProps {
 }
 
 export function Trigger({ expandable, expanded }: TriggerProps) {
-  // const variant = useWidgetConfig().value.variant;
 
   const terms = useTerms();
   const { isDisconnected } = useConversation();
@@ -32,29 +31,33 @@ export function Trigger({ expandable, expanded }: TriggerProps) {
   const config = useWidgetConfig();
   const variant = config.value.variant;
 
+  const ic_pos = config.value.ic_pos;
+  const ic_pos_mob = config.value.ic_pos_mob;
+
   const isFull = variant === "full";
 
-  if (expandable) {
+  if (ic_pos === "rb1"){
+      if (expandable) {
+        const Layout = isFull ? FullExpandableTrigger : CompactExpandableTrigger;
+        return (
+          <Layout
+            expanded={expanded}
+            className={clsx(
+              "bg-base shadow-md pointer-events-auto overflow-hidden",
+              (isDisconnected.value || expanded.value) && "cursor-pointer"
+            )}
+            onClick={
+              isDisconnected.value || expanded.value ? toggleExpanded : undefined
+            }
+          />
+        );
+      }
 
-    const Layout = isFull ? FullExpandableTrigger : CompactExpandableTrigger;
-
-    return (
-      <Layout
-        expanded={expanded}
-        className={clsx(
-          "bg-base shadow-md pointer-events-auto overflow-hidden",
-          (isDisconnected.value || expanded.value) && "cursor-pointer"
-        )}
-        onClick={
-          isDisconnected.value || expanded.value ? toggleExpanded : undefined
-        }
-      />
-    );
+      const Layout = isFull ? FullTrigger : CompactTrigger;
+      return (
+        <Layout className="bg-base shadow-md pointer-events-auto overflow-hidden" />
+      );      
   }
+    
 
-  const Layout = isFull ? FullTrigger : CompactTrigger;
-
-  return (
-    <Layout className="bg-base shadow-md pointer-events-auto overflow-hidden" />
-  );
 }

@@ -1,7 +1,7 @@
 {
   "name": "@intelli4/convai-cw-embed",
 
-  "version": "0.0.2",
+  "version": "0.0.3",
   
   "description": "The Conversational AI Widget bundled with all dependencies for easy embedding. ",
   "main": "./dist/index.js",
@@ -21,7 +21,7 @@
   "license": "MIT",
 
   "devDependencies": {
-    "@intelli4/convai-cw-core":"^0.0.2",
+    "@intelli4/convai-cw-core":"^0.0.3",
     "eslint": "^9.8.0",
     "microbundle": "^0.15.1",
     "typescript": "^5.5.4",

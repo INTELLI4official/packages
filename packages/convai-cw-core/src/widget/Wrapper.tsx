@@ -49,14 +49,7 @@ export const Wrapper = memo(function Wrapper() {
   const terms = useTerms();
   const expandable = useComputed( () => config.value.transcript_enabled || config.value.text_input_enabled );
 
-  // const className = useComputed(() =>
-  //   clsx(
-  //     "overlay !flex transition-opacity duration-200 data-hidden:opacity-0",
-  //     PLACEMENT_CLASSES[config.value.placement]
-  //   )
-  // );
 
-  const className = "!flex "
 
   useSignalEffect(() => {
     if (error.value) {
@@ -82,6 +75,25 @@ export const Wrapper = memo(function Wrapper() {
   const isError = useComputed(() => state.value === "error");
   const isTerms = useComputed(() => state.value === "terms");
   const isConversation = useComputed(() => state.value === "conversation");
+
+  const ic_pos = config.value.ic_pos;
+  const ic_pos_mob = config.value.ic_pos_mob;
+
+
+  let className;
+
+  if (ic_pos === "rb1"){
+    className = useComputed(() =>
+                clsx(
+                  "overlay !flex transition-opacity duration-200 data-hidden:opacity-0",
+                  PLACEMENT_CLASSES[config.value.placement]
+                ));
+  }
+
+  if (ic_pos === "rb2"){
+    className = "!flex w-full  "
+  }
+
 
   return (
     <>
@@ -111,9 +123,11 @@ export const Wrapper = memo(function Wrapper() {
         </Root>
       </InOutTransition>
 
-      {/* <Root className={className} style={HIDDEN_STYLE}>
-        <PoweredBy />
-      </Root> */}
+      {ic_pos === "rb1" && (
+        <Root className={className} style={HIDDEN_STYLE}>
+          <PoweredBy />
+        </Root>
+      )}
 
     </>
   );

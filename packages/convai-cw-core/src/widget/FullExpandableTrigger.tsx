@@ -18,38 +18,37 @@ export function FullExpandableTrigger({
 
   const config = useWidgetConfig();
   
-  let icClassName;
-  if (config.value.ic_pos === "rb1"){
-    icClassName = "flex-col justify-end items-end"
-  }
+  const ic_pos = config.value.ic_pos;
+  const ic_pos_mob = config.value.ic_pos_mob;
 
 
   return (
-
-    // <div
-    //   className={clsx(
-    //     "transition-[border-radius] flex flex-col p-2",
-    //     !expanded.value && isDisconnected.value ? "rounded-sheet" : "rounded-compact-sheet",
-    //     className
-    //   )}
-    //   {...rest}
-    // >
-    //   <SizeTransition
-    //     visible={!expanded.value && isDisconnected.value}
-    //     className="p-1 !min-w-60"
-    //   >
-    //     <div className="flex items-center gap-2">
-    //       <Avatar />
-    //       <div className="text-sm max-w-64">{text.main_label}</div>
-    //     </div>
-    //   </SizeTransition>
-    //   <div className="flex items-center">
-    //     <ExpandableTriggerActions expanded={expanded} />
-    //   </div>
-    // </div>    
-
     <>
-    {config.value.ic_pos === "rb1" && (
+    {ic_pos === "rb1" && (
+      <div
+        className={clsx(
+          "transition-[border-radius] flex flex-col p-2",
+          !expanded.value && isDisconnected.value ? "rounded-sheet" : "rounded-compact-sheet",
+          className
+        )}
+        {...rest}
+      >
+        <SizeTransition
+          visible={!expanded.value && isDisconnected.value}
+          className="p-1 !min-w-60"
+        >
+          <div className="flex items-center gap-2">
+            <Avatar />
+            <div className="text-sm max-w-64">{text.main_label}</div>
+          </div>
+        </SizeTransition>
+        <div className="flex items-center">
+          <ExpandableTriggerActions expanded={expanded} />
+        </div>
+      </div>
+    )}
+
+    {ic_pos === "rb2" && (
       <div className="!flex flex-col absolute w-full h-full  justify-end items-end ">
         <div className="flex-col w-[420px] mr-[0px] ">
 
@@ -74,7 +73,7 @@ export function FullExpandableTrigger({
                     <div className="flex -mt-[2px]">
                       <p className="text-[22px]">🤖</p>
                     </div>
-                    <div className="flex ml-[10px]">
+                    <div className="flex ml-[5px]">
                       <p className="[color:white] text-[16px]">Assistant</p>
                     </div>
                   </div>
